@@ -56,6 +56,25 @@ summary(lin_reg)
 # ("latemin") so far and fit a linear model on it
 
 
+## Use mean of "latemin" to construct time_delay column
+no_of_days <- nrow(t12307)/length(levels(t12307$station_code))
+delay <- aggregate(latemin~distance,t12307,mean)
+delay <- rep(delay,no_of_days)
+delay <- delay[seq(1,length(delay)-1)]
+
+delay <- c(0,delay)
+delay[delay<0] <- 0
+delay[seq(1,length(delay),no_of_stations)] <- 0
+
+lin_reg <- lm(late_min ~ distance+station_code+delay, data = t12307)
+summary(lin_reg)
+# RSquared Error : 0.76
+
+## Looks like "distance" has no role to play in presence of "station_code". Also there's a abnormal behaviour if "delay" is used
+# instead of "time_delay". Investigate further !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+
+
+
 
 
 
