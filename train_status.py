@@ -5,17 +5,11 @@ import pickle
 import time
 header = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:32.0) Gecko/20100101 Firefox/32.0',}
 
-http_proxy  = "http://068.12400en009:jack848@10.1.1.45:80"
-https_proxy = "https://068.12400en009:jack848@10.1.1.45:80"
-ftp_proxy   = "ftp://068.12400en009:jack848@10.1.1.45:80"
 #
 # http_proxy  = "http://ccusr7:ccusr07@10.1.1.18:80"
 # https_proxy = "https://ccusr7:ccusr07@10.1.1.18:80"
 # ftp_proxy   = "ftp://ccusr7:ccusr07@10.1.1.18:80"
 
-# http_proxy  = "http://068.12400en009:jack848@10.1.1.19:80"
-# https_proxy = "https://068.12400en009:jack848@10.1.1.19:80"
-# ftp_proxy   = "ftp://068.12400en009:jack848@10.1.1.19:80"
 
 
 proxyDict = {
