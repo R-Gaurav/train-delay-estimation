@@ -30,7 +30,7 @@ through our paper mentioned above.
 
 The code is highly commented with function docstrings. Please let me know if you
 need help understanding them or setting up the experiments. The best way to set
-an experiment environment on you system is to download and install [Anaconda](
+an experiment environment on your system is to download and install [Anaconda](
 https://www.anaconda.com/download/).
 
 
