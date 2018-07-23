@@ -1,6 +1,6 @@
 # Train Delay Estimation
 A first attempt to model the train delays across stations in India (as of 2018).
-Paper accepted at ITSC 2018 (IEEE).
+Paper accepted at [IEEE ITSC 2018](http://www.ieee-itsc2018.org).
 
 ## Description
 This project is first of its kind, an attempt made to learn the delay trends of
