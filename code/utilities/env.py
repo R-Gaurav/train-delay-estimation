@@ -12,20 +12,18 @@ import sys
 # This module should NOT be executed.
 assert __name__ != "__main__"
 
-# Set up the local path (in your machine) to the directory where you downloaded
-# the TrainDelayEstimation git repository.
-# Here "TrainDelayEstimation" is downloaded in "/Personal/projects/".
-# Here "data" is downloaded in "/Personal/projects/".
-# Here "models" is set in "/Personal/projects/".
+# Here "train-delay-estimation-ITSC2018" is downloaded in "/Personal/projects/".
+# Here "data" is downloaded in "/Personal/projects/train-delay-estimation-ITSC2018/".
+# Here "models" is set in "/Personal/projects/train-delay-estimation-ITSC2018/".
 
-project_dir_path = "/home/raga/tde/"
+project_dir_path = "/Personal/projects/train-delay-estimation-ITSC2018/"
 
 # Insert the path to the project directory in sys.path so that subdirectories
 # and code files are accessible in other files.
-sys.path.insert(0, project_dir_path+"TrainDelayEstimation/")
+sys.path.insert(0, project_dir_path+"code/")
 
 # Insert the path to readers directory.
-sys.path.insert(0, project_dir_path+"TrainDelayEstimation/readers/")
+sys.path.insert(0, project_dir_path+"code/readers/")
 
 # Insert the path to the data (input) directory.
 # data_path contains all the raw data and pickle data.

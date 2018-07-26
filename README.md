@@ -51,3 +51,56 @@ As of 2018:
 ### Note:
 This project is spearheaded by [Dr. Biplav Srivastava](
 https://researcher.watson.ibm.com/researcher/view.php?person=us-biplavs).
+
+## Tutorial (How to use this code to train and test the models...)
+We only share the raw data and not the pre-trained models. Each saved pre-trained
+model is approximately 40MB or more, hence not feasible to share. However by
+following simple steps you can easily train the prediction models and use it for
+predicting delays at railway stations.
+
+The tutorial below details the steps to train Random Forest Regressor models (the
+most effective ones compared to Ridge Regressor models).
+
+To set up an experimental environment, follow the below steps in precisely the
+same order as mentioned. The preferred environment is Linux.
+
+### Setting up the directory
+1> Clone this repo on your local system by executing below command.
+`git clone https://github.com/R-Gaurav/train-delay-estimation-ITSC2018.git`
+
+2> Prepare **data** directory and **models** directory.
+  a) Change the directory: `cd train-delay-estimation-ITSC2018`
+  b) Untar the data folder **Train_Delay_Estimation_Data_March_2016_February_2018.tar** by executing below command:
+    `tar -zxf Train_Delay_Estimation_Data_March_2016_February_2018.tar`
+  c) Rename **Train_Delay_Estimation_Data_March_2016_February_2018** to **data**.
+     Execute: `mv Train_Delay_Estimation_Data_March_2016_February_2018 data`
+  d) Create a new directory named **models** where your trained Random Forest
+     Models would be saved.
+     Execute: `mkdir models`
+  c) Before you proceed further, make sure you have following contents under **train-delay-estimation-ITSC2018** directory:
+    README.md
+    Train_Delay_Estimation_Data_March_2016_February_2018.tar (you can remove it).
+    code
+    data
+    misc
+    models
+
+### Setting up the environment variables in file **env.py**
+1> Navigate to directory **train-delay-estimation-ITSC2018/code/utilities**.
+
+2> Open **env.py**.
+
+3> Set the `project_dir_path` variable to the location where you have downloaded **train-delay-estimation-ITSC2018** directory.
+
+4> Change no more variables.
+
+### Creating pickle data
+1> Move to **data** directory.
+
+2> Execute: `mkdir pickle_data && cd pickle_data`.
+
+3> Create list of
+### Create training data (Table 3 in paper) to train the models
+1> Move to the **code** directory.
+
+2>
