@@ -65,7 +65,7 @@ To set up an experimental environment, follow the below steps in precisely the
 same order as mentioned. The preferred environment is Linux.
 
 ### Setting up the directory
-1> Clone this repo on your local system by executing below command.
+1> Clone this repo on your local system by executing below command.\
 `git clone https://github.com/R-Gaurav/train-delay-estimation-ITSC2018.git`
 
 2> Prepare **data** directory and **models** directory.
