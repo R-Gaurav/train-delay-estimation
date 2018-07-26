@@ -82,24 +82,24 @@ same order as mentioned. The preferred environment is Linux.
     code\
     data\
     misc\
-    models\
+    models
 
 ### Setting up the environment variables in file **env.py**
-1> Navigate to directory **train-delay-estimation-ITSC2018/code/utilities**.\
+1> Navigate to directory **train-delay-estimation-ITSC2018/code/utilities**.
 
-2> Open **env.py**.\
+2> Open **env.py**.
 
-3> Set the `project_dir_path` variable to the location where you have downloaded **train-delay-estimation-ITSC2018** directory.\
+3> Set the `project_dir_path` variable to the location where you have downloaded **train-delay-estimation-ITSC2018** directory.
 
-4> Change no more variables.\
+4> Change no more variables.
 
 ### Creating pickle data
-1> Move to **data** directory.\
+1> Move to **data** directory.
 
-2> Execute: `mkdir pickle_data && cd pickle_data`.\
+2> Execute: `mkdir pickle_data && cd pickle_data`.
 
-3> Create list of\
+3> Create list of
 ### Create training data (Table 3 in paper) to train the models
-1> Move to the **code** directory.\
+1> Move to the **code** directory.
 
-2>\
+2>
