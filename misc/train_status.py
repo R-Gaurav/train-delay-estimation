@@ -5,18 +5,6 @@ import pickle
 import time
 header = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:32.0) Gecko/20100101 Firefox/32.0',}
 
-#
-# http_proxy  = "http://ccusr7:ccusr07@10.1.1.18:80"
-# https_proxy = "https://ccusr7:ccusr07@10.1.1.18:80"
-# ftp_proxy   = "ftp://ccusr7:ccusr07@10.1.1.18:80"
-
-
-
-proxyDict = {
-              "http"  : http_proxy,
-              "https" : https_proxy,
-              "ftp"   : ftp_proxy
-            }
 ################################################################################
 train_list = pickle.load(open('train_list_MGS.p','rb'))
 
@@ -26,9 +14,8 @@ train_list = train_list[i:]
 ################################################################################
 for train_num in train_list:
 
-    url="http://api.railwayapi.com/live/train/"+str(train_num)+"/doj/20160328/apikey/hzkkh3244/"
-    #url="http://api.railwayapi.com/live/train/"+str(train_num)+"/doj/20160326/apikey/xcdko6173/"
-    response = requests.get(url,headers=header,proxies=proxyDict)
+    url="http://api.railwayapi.com/live/train/"+str(train_num)+"/doj/20160328/apikey/<api_key>/"
+    response = requests.get(url,headers=header,proxies=None)
     if response.status_code == 200:
         #print response.text
         status = json.loads(response.text)
