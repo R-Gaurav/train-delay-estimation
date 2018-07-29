@@ -76,7 +76,7 @@ same order as mentioned. The preferred environment is Linux.
     `tar -zxf Train_Delay_Estimation_Data_March_2016_February_2018.tar`\
   c) Rename **Train_Delay_Estimation_Data_March_2016_February_2018** to **data**.\
      Execute: `mv Train_Delay_Estimation_Data_March_2016_February_2018 data`\
-  d) Move **pickle\_data** directory inside **data** directory.
+  d) Move **pickle\_data** directory inside **data** directory.\
   e) Create a new directory named **models** where your trained Random Forest
     Models would be saved.\
     Execute: `mkdir models`\
@@ -86,10 +86,9 @@ same order as mentioned. The preferred environment is Linux.
     Train_Delay_Estimation_Data_March_2016_February_2018.tar (you can remove it).\
     code\
     data\
+    data/pickle_data\
     misc\
     models
-
-    and pickle_data under data directory.
 
 ### Setting up the environment variables in file **env.py**
 1> Navigate to directory **train-delay-estimation-ITSC2018/code/utilities**.
@@ -117,7 +116,7 @@ Inside **data**, execute:
   `mkdir 52tr_stations_training_data/2ps_training_data` to store 2-prev-stn data\
   `mkdir 52tr_stations_training_data/3ps_training_data` to store 3-prev-stn data\
   `mkdir 52tr_stations_training_data/4ps_training_data` to store 4-prev-stn data\
-  `mkdir 52tr_stations_training_data/5ps_training_data` to store 5-prev-stn data\
+  `mkdir 52tr_stations_training_data/5ps_training_data` to store 5-prev-stn data
 
 ### Create training data (Table III in paper) to train the models
 1> Move to the **code** directory.
