@@ -16,7 +16,7 @@ assert __name__ != "__main__"
 # Here "data" is downloaded in "/Personal/projects/train-delay-estimation-ITSC2018/".
 # Here "models" is set in "/Personal/projects/train-delay-estimation-ITSC2018/".
 
-project_dir_path = "/Personal/projects/train-delay-estimation-ITSC2018/"
+project_dir_path = "/Personal/tmp/train-delay-estimation-ITSC2018/"
 
 # Insert the path to the project directory in sys.path so that subdirectories
 # and code files are accessible in other files.

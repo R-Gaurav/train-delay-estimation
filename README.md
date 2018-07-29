@@ -121,4 +121,12 @@ Inside **data**, execute:
 ### Create training data (Table III in paper) to train the models
 1> Move to the **code** directory.
 
-2>
+2> Execute: `python create_training_data.py 1` to create training data for 1\
+   previous station dataframe, similarly replace 1 with _n_ for creating data\
+   of _n_ previous stations.
+
+   For more information, go through the description mentioned in file: \
+   `create_training_data.py`.
+
+### Training the regression models
+1>
