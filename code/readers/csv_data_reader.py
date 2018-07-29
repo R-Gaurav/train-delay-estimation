@@ -23,8 +23,9 @@ class CSVDataReader(object):
       train_num <string>: Train number eg. "12307" whose data frame is required
       setting <string>: <"training"|"cross_validation"|"test">
     """
+    tr_grp = "52_known_" if setting == "training" else "83_unknown_"
     train_df = pd.read_csv(
-        (self._cdpath+"trains_"+setting+"_file/Train"+train_num+".csv"))
+        (self._cdpath+tr_grp+"trains_"+setting+"_folder/Train"+train_num+".csv"))
     return train_df
 
   def get_n_prev_station_csv_df(self, station, setting, n):
@@ -67,6 +68,6 @@ class CSVDataReader(object):
       train_num <string>: Train number eg. "12307" whose complete journey df is
                           required.
     """
-    df = pd.read_csv(self._cdpath+"csvs_of_all_trains135/csv_Mar16_Feb18_all"+
-                     "_trains135_months_weekdays/Train"+train_num+".csv")
+    df = pd.read_csv(self._cdpath+
+        "csv_Mar16_Feb18_all_trains_135_months_weekdays/Train"+train_num+".csv")
     return df

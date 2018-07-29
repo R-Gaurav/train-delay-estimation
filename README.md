@@ -70,19 +70,26 @@ same order as mentioned. The preferred environment is Linux.
 
 2> Prepare **data** directory and **models** directory.\
   a) Change the directory: `cd train-delay-estimation-ITSC2018`\
-  b) Untar the data folder **Train_Delay_Estimation_Data_March_2016_February_2018.tar** by executing below command:\
+  b) Untar the data folder\
+    **Train_Delay_Estimation_Data_March_2016_February_2018.tar** \
+    by executing below command:\
     `tar -zxf Train_Delay_Estimation_Data_March_2016_February_2018.tar`\
   c) Rename **Train_Delay_Estimation_Data_March_2016_February_2018** to **data**.\
      Execute: `mv Train_Delay_Estimation_Data_March_2016_February_2018 data`\
-  d) Create a new directory named **models** where your trained Random Forest Models would be saved.\
-     Execute: `mkdir models`\
-  c) Before you proceed further, make sure you have following contents under **train-delay-estimation-ITSC2018** directory:\
+  d) Move **pickle\_data** directory inside **data** directory.
+  e) Create a new directory named **models** where your trained Random Forest
+    Models would be saved.\
+    Execute: `mkdir models`\
+  f) Before you proceed further, make sure you have following contents under \
+    **train-delay-estimation-ITSC2018** directory:\
     README.md\
     Train_Delay_Estimation_Data_March_2016_February_2018.tar (you can remove it).\
     code\
     data\
     misc\
     models
+
+    and pickle_data under data directory.
 
 ### Setting up the environment variables in file **env.py**
 1> Navigate to directory **train-delay-estimation-ITSC2018/code/utilities**.
@@ -94,12 +101,25 @@ same order as mentioned. The preferred environment is Linux.
 4> Change no more variables.
 
 ### Creating pickle data
-1> Move to **data** directory.
+1> I have already provided some data in pickle format which were either manually\
+   created or collected from internet via REST APIs. Although you need to create
+   few more data in pickle format.
 
-2> Execute: `mkdir pickle_data && cd pickle_data`.
+   To do this, just execute `python create_pickle_data.py`.
 
-3> Create list of
-### Create training data (Table 3 in paper) to train the models
+### Creating necessary directories inside **data** directory
+Inside **data** directory you need to create other sub-directories which will\
+store other computed CSVs needed to train or validate the Regression Models.
+
+Inside **data**, execute:
+  `mkdir 52tr_stations_training_data` to store station CSVs (Table III in paper)\
+  `mkdir 52tr_stations_training_data/1ps_training_data` to store 1-prev-stn data\
+  `mkdir 52tr_stations_training_data/2ps_training_data` to store 2-prev-stn data\
+  `mkdir 52tr_stations_training_data/3ps_training_data` to store 3-prev-stn data\
+  `mkdir 52tr_stations_training_data/4ps_training_data` to store 4-prev-stn data\
+  `mkdir 52tr_stations_training_data/5ps_training_data` to store 5-prev-stn data\
+
+### Create training data (Table III in paper) to train the models
 1> Move to the **code** directory.
 
 2>
