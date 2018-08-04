@@ -24,9 +24,6 @@ Here, description of files in this repository is given.
   > Contains the helper code to generate data frames and to build our train-test
   algorithm.
 
-/result_analysis.py:
-  > Code to analyse the results.
-
 /create_training_data.py:
   > Code to create training data i.e. a Training Data Frame for each Known
   Station from each Known Train.

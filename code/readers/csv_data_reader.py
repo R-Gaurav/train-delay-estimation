@@ -21,9 +21,11 @@ class CSVDataReader(object):
 
     Args:
       train_num <string>: Train number eg. "12307" whose data frame is required
-      setting <string>: <"training"|"cross_validation"|"test">
+      setting <string>: <"training"|"cross_validation"|"known_test"|
+                        "unknown_test">
     """
-    tr_grp = "52_known_" if setting == "training" else "83_unknown_"
+    tr_grp = ("52_known_" if (setting == "training" or setting == "known_test"
+              or setting == "cross_validation") else "83_unknown_")
     train_df = pd.read_csv(
         (self._cdpath+tr_grp+"trains_"+setting+"_folder/Train"+train_num+".csv"))
     return train_df

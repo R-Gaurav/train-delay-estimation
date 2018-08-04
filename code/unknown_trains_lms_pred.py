@@ -12,18 +12,18 @@
 #       N-Order Markov Late Minutes Prediction Framework for Unknown Trains.
 #
 #       To run this file execute:
-#       `python unknown_trains_lms_pred.py rfr 10
-#       jrny_wise_unknown_trains_lms_1ps_labenc_wonps_wdts
-#       rmse_of_jrny_wise_lms_pred_unknown_trains_1ps_wonps_wdts`
+#       `python unknown_trains_lms_pred.py rfr 10 1`
 #
 #       Where the string "rfr" stands for the model employed to predict late
 #       minutes, here "rfr" implies: Random Forest Regressor model. Numeral 10
 #       can be changed to desired number of Nearest Neighbors stations out of
-#       which first Known Station is to be chosen.
+#       which first Known Station is to be chosen. Here we mention only 1-prev
+#       station to be considered.
+#
 #       "jrny_wise_unknown_trains_lms_1ps_labenc_wonps_wdts" is the directory
-#       where predicted late minutes are to be store and
+#       where predicted late minutes will be stored and
 #       "rmse_of_jrny_wise_lms_pred_unknown_trains_1ps_wonps_wdts" is the
-#       directory where RMSE of predicted late minutes are to be dumped.
+#       directory where RMSE of predicted late minutes will be dumped.
 #
 
 import pandas as pd
@@ -35,7 +35,7 @@ from sklearn.metrics import mean_squared_error
 from utilities.tt_utils import TrainingTestUtils as TTU
 
 def get_journey_wise_late_mins_of_unknown_trains(
-    ttu, train_num, setting, nn, mdl, exp_lms_output_dir, exp_rmse_output_dir):
+    ttu, train_num, setting, nn, mdl, n, exp_lms_output_dir, exp_rmse_output_dir):
   """
   Finds the journey wise late minutes of unknown trains, ie. last 82 trains of
   all 135 trains whose data has been collected so far.
@@ -49,6 +49,15 @@ def get_journey_wise_late_mins_of_unknown_trains(
     nn <int>: Number of nearest neighbors of unknown stations
     mdl <string>: <"rfr"> # For Random Forest Regressor Models
                   <"lmr"> # For Linear Model Regressor Models
+    n <int>: value of n in n-OMLMPF (n-prev-stns to consider)
+    exp_lms_output_dir <str>: <
+                            "jrny_wise_unknown_trains_lms_1ps_labenc_wonps_wdts"
+                            | ..> Desired output directory where predicted late
+                            minutes are to saved.
+    exp_rmse_output_dir <str>: <
+        "rmse_of_jrny_wise_lms_pred_unknown_trains_1ps_wonps_wdts" | ..> Desired
+        output directory where RMSE's of predicted late minutes are saved in
+        pickle format. Make sure it stays aligned with `exp_lms_output_dir`.
   """
   pred_lms_df = [] # To capture the predicted late mins for each journey
   pred_lms_rmse = [] # Late Minutes RMSE for each journey
@@ -77,7 +86,7 @@ def get_journey_wise_late_mins_of_unknown_trains(
       try:
         stn = stn_list_sj[j]
 
-        if j == 1: # valid for only 1 previous station
+        if (j == 1 or n == 1): # valid for only 1 previous station
           stns_hvng_1ps_model = ttu._pdr.get_stations_having_nps_model_list(nps=1)
           if stn not in stns_hvng_1ps_model:
             num_of_unknown_stns += 1
@@ -87,7 +96,8 @@ def get_journey_wise_late_mins_of_unknown_trains(
           plm = ttu.get_predicted_late_mins_at_station_float(train_num, sj_df,
               j+source_rows[i], 1, stn, pred_late_mins_sj, j, mdl)
           pred_late_mins_sj.append(plm)
-        elif j == 2: # valid for only 2 previous stations
+          continue
+        if (j == 2 or n == 2): # valid for only 2 previous station
           stns_hvng_2ps_model = ttu._pdr.get_stations_having_nps_model_list(nps=2)
           if stn not in stns_hvng_2ps_model:
             num_of_unknown_stns += 1
@@ -98,7 +108,8 @@ def get_journey_wise_late_mins_of_unknown_trains(
           plm = ttu.get_predicted_late_mins_at_station_float(train_num, sj_df,
               j+source_rows[i], 2, stn, pred_late_mins_sj, j, mdl)
           pred_late_mins_sj.append(plm)
-        elif j == 3: # valid for only 3 previous stations
+          continue
+        if (j == 3 or n == 3): # valid for only 3 previous station
           stns_hvng_3ps_model = ttu._pdr.get_stations_having_nps_model_list(nps=3)
           if stn not in stns_hvng_3ps_model:
             num_of_unknown_stns += 1
@@ -109,7 +120,8 @@ def get_journey_wise_late_mins_of_unknown_trains(
           plm = ttu.get_predicted_late_mins_at_station_float(train_num, sj_df,
               j+source_rows[i], 3, stn, pred_late_mins_sj, j, mdl)
           pred_late_mins_sj.append(plm)
-        elif j == 4: # valid for only 4 previous stations
+          continue
+        if (j == 4 or n == 4): # valid for only 4 previous station
           stns_hvng_4ps_model = ttu._pdr.get_stations_having_nps_model_list(nps=4)
           if stn not in stns_hvng_4ps_model:
             num_of_unknown_stns += 1
@@ -120,7 +132,8 @@ def get_journey_wise_late_mins_of_unknown_trains(
           plm = ttu.get_predicted_late_mins_at_station_float(train_num, sj_df,
               j+source_rows[i], 4, stn, pred_late_mins_sj, j, mdl)
           pred_late_mins_sj.append(plm)
-        else: # rest stations in journey are valid for 5 previous stations
+          continue
+        if (j == 5 or n == 5): # rest stations valid for only 5 previous station
           stns_hvng_5ps_model = ttu._pdr.get_stations_having_nps_model_list(nps=5)
           if stn not in stns_hvng_5ps_model:
             num_of_unknown_stns += 1
@@ -131,7 +144,10 @@ def get_journey_wise_late_mins_of_unknown_trains(
           plm = ttu.get_predicted_late_mins_at_station_float(train_num, sj_df,
               j+source_rows[i], 5, stn, pred_late_mins_sj, j, mdl)
           pred_late_mins_sj.append(plm)
+          continue
+
       except Exception as e:
+        print e
         pred_late_mins_sj.append(pred_late_mins_sj[j-1])
 
     # Construct the data frame of Station Code, Actual Late Mins and
@@ -158,17 +174,19 @@ def get_journey_wise_late_mins_of_unknown_trains(
 if __name__ == "__main__":
   mdl = sys.argv[1] # Get the model <"rfr"|"lmr">
   nn = int(sys.argv[2]) # Get the number of nearest neighbors
-  exp_lms_output_dir = sys.argv[3] # Create this directory to store predicted
-                                   # late minutes in each experiments for
-                                   # different  values of n in nps.
-  exp_rmse_output_dir = sys.argv[4] # Create this directory to store the RMSE
-                                    # for predicted late minutes in each
-                                    # experiment for different values of n.
-                                    # Make sure it stays aligned with
-                                    # exp_lms_output_dir.
+  n = sys.argv[3] # Get the n in n-OMLMPF (n-prev-stns to consider).
+  # Create this directory to store predicted late minutes in each experiments
+  # for different values of n in nps.
+  exp_lms_output_dir = "jrny_wise_unknown_trains_lms_%sps_labenc" % n
+
+  # Create this directory to store the RMSE for predicted late minutes in each
+  # experiment for different values of n. Make sure it stays aligned with
+  # exp_lms_output_dir.
+  exp_rmse_output_dir = "rmse_of_jrny_wise_lms_pred_unknown_trains_%sps"  % n
+
   ttu = TTU()
   trains83 = ttu._pdr.get_all_trains()[52:] # Choose the rest 83 Unknown Trains
   for train in trains83:
     get_journey_wise_late_mins_of_unknown_trains(
-        ttu, train, "unknown_test", nn, mdl, exp_lms_output_dir,
+        ttu, train, "unknown_test", nn, mdl, int(n), exp_lms_output_dir,
         exp_rmse_output_dir)

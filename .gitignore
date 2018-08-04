@@ -1,7 +1,9 @@
 # Ignore *.pyc files.
 *.pyc
+*.DS_Store
 
 # Ignoring data directory
 data/
-
+models/
+tde_service/logs/
 

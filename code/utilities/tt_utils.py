@@ -13,7 +13,6 @@ import numpy as np
 import pandas as pd
 import pickle
 
-from sklearn.ensemble import RandomForestRegressor as RFR
 from sklearn.metrics import mean_squared_error
 from sklearn.neighbors import NearestNeighbors as NN
 
@@ -182,7 +181,7 @@ class TrainingTestUtils(object):
                     "nnr": Neural Network Regressor Models (not converged).
     """
     model = joblib.load(self._model_path + mdl + "_models/" + str(n) +
-        "ps_" + mdl + "_labenc_models_complete_wonps_wdts/" + current_station +
+        "ps_" + mdl + "_labenc_models/" + current_station +
         "_label_encoding_model.sav")
     pred_late_mins = model.predict(df)
     return pred_late_mins

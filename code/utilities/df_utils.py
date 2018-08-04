@@ -6,7 +6,9 @@
 # Desc: Provides necessary utilities helpful for DataFrame creation
 #
 
-from env import * # Import it first, as it imports data_path and models_path.
+# Import it first, as it imports data_path and models_path and paths to other
+# modules namely pickle_data_reader and csv_data_reader.
+from env import *
 
 import pickle
 import pandas as pd

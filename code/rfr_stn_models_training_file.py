@@ -12,11 +12,11 @@
 #       Prints the RMSE of data frame on which training was done to see the fit.
 #
 #       To run this file execute:
-#       python rfr_stn_models_training_file.py 1 1ps_rfr_labenc_models
+#       python rfr_stn_models_training_file.py 1
 #
 #       where the numeral "1" can be changed as <1|2|3|4|5> as per the value of
 #       "n" in n-previous-station models. The output trained models are saved in
-#       "1ps_rfr_labenc_models" directory.
+#       "nps_rfr_labenc_models" directory, where n can be <1|2|3|4|5>.
 #
 #       IMPORTANT NOTE: Make sure to remove the unwanted columns in data frame
 #                       depending on experiments for which you want trained
@@ -35,12 +35,11 @@ from utilities.tt_utils import TrainingTestUtils as TTU
 
 if __name__ == "__main__":
   n = int(sys.argv[1]) # Get the n in "n previous station"
-  mdl_output_dir = sys.argv[2] # Get the trained models output directory.
   ttu = TTU()
   stns = ttu._pdr.get_all_52trains_stations()
   stns_having_model = [] # Stations having n prev stations RFR models
   for s in stns:
-    df = ttu._cdr.get_n_prev_station_csv_df(s, "complete_training", n)
+    df = ttu._cdr.get_n_prev_station_csv_df(s, "training", n)
     df = ttu._get_labenc_station_df(df, n)
 
     if not df.empty:
@@ -56,7 +55,7 @@ if __name__ == "__main__":
       RMSE = mean_squared_error(target_late_mins, pred_lms)**0.5
       print s, RMSE
 
-      joblib.dump(model, ttu._model_path + "rfr_models/" + mdl_output_dir +
-                  "/" + s + "_label_encoding_model.sav")
+      joblib.dump(model, ttu._model_path + "rfr_models/" + str(n) +
+                  "ps_rfr_labenc_models/" + s + "_label_encoding_model.sav")
   pickle.dump(stns_having_model, open(ttu._pdr._pdpath+
       "stations_having_"+str(n)+"ps_models.p", "wb"))

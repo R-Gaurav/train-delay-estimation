@@ -76,7 +76,6 @@ same order as mentioned. The preferred environment is Linux.
     `tar -zxf Train_Delay_Estimation_Data_March_2016_February_2018.tar`\
   c) Rename **Train_Delay_Estimation_Data_March_2016_February_2018** to **data**.\
      Execute: `mv Train_Delay_Estimation_Data_March_2016_February_2018 data`\
-  d) Move **pickle\_data** directory inside **data** directory.\
   e) Create a new directory named **models** where your trained Random Forest
     Models would be saved.\
     Execute: `mkdir models`\
@@ -125,8 +124,119 @@ Inside **data**, execute:
    previous station dataframe, similarly replace 1 with _n_ for creating data\
    of _n_ previous stations.
 
+   On a system with 4 logical cores (you can get the number of logical cores on\
+   you system by executing `htop` or `top` (followed by pressing `1` key)), it\
+   take minimum 7 hours to prepare 1-prev-stn data frames. For 2-prev-stn data\
+   frames it takes 9 hours, so expect it to keep increasing for higher number \
+   of previous station data frames.
+
+   NOTE: The data frames are created parallely, computation done on all 4 cores.
+   You would be required to change the number of logical core accordingly.
+
    For more information, go through the description mentioned in file: \
    `create_training_data.py`.
 
 ### Training the regression models
-1>
+1> Move to **models** directory.\
+
+2> Execute `mkdir rfr_models` to store Random Forest Regressor trained models.
+
+3> Move to `rfr_models` and execute `mkdir 1ps_rfr_labenc_models` to create a \
+   directory to store saved Random Forest Regressors (RFR) models trained from \
+   1-prev-stn data. Create similar directories to store RFR models for \
+   _n_-prev-stn data.
+
+4> Execute `python rfr_stn_models_training_file.py 1` to train 1-prev-stn models.\
+   Similary change `1` to `2` or `3` or `4` or `5` to train other models. However\
+   you would be required to prepare training data for them first though.
+
+   On executing the above command, you will see a continuous output on command
+   prompt:
+
+           .
+           .
+           .
+           .
+	 CAR 6.60625167783
+   CBH 1.71117789831
+   CBJ 17.4222160169
+   CCK 3.79114575446
+	 CD 3.31220839301
+	 CDMR 5.39912244203
+	 CGR 8.08489734899
+	 CH 10.4774022913
+	 CHL 5.99947173966
+ 	 CHTI 67.8594204912
+	 CKDL 12.6303575828
+	 CKTD 5.57649677578
+	 CLG 4.48826310353
+	 CNB 62.4855739456
+           .
+           .
+           .
+           .
+
+   where "CAR", CBH" are station codes and floating numbers beside them are
+   RMSEs which evaluate the fit of models on training data itself.
+
+   On a system with 4 logical cores (you can get the number of logical cores on\
+   you system by executing `htop` or `top` (followed by pressing `1` key)), it\
+   takes nearly an hour to train 1-prev-stn RFR models, for other n-prev-stn\
+   models it takes nearly same time.
+
+### Predicting delays of train's test data
+  1> Move to **data** directory and create **rfr_model_data** subdirectory.\
+     `mkdir rfr_model_data`
+
+  2> Move to **rfr_model_data** directory and execute following command.\
+     `mkdir jrny_wise_known_trains_lms_1ps_labenc`
+     `mkdir jrny_wise_known_trains_lms_2ps_labenc`
+     and so on... for Known Trains test data.
+
+     `mkdir jrny_wise_unknown_trains_lms_1ps_labenc`
+     `mkdir jrny_wise_unknown_trains_lms_2ps_labenc`
+     and so on... for Unknown Trains test data.
+
+  3> Move to **pickle_data** subdirectory under **data** directory and create\
+     a subdirectory `mkdir rfr_model_pickle_data`. Inside **rfr_model_pickle_data**\
+     execute following command.
+     `mkdir rmse_of_jrny_wise_lms_pred_known_trains_1ps`
+     `mkdir rmse_of_jrny_wise_lms_pred_known_trains_2ps`
+     and so on... for Known Trains test data.
+
+     `mkdir rmse_of_jrny_wise_lms_pred_unknown_trains_1ps`
+     `mkdir rmse_of_jrny_wise_lms_pred_unknown_trains_2ps`
+     and so on... for Unknown Trains test data.
+
+  4> Execute `python known_trains_lms_pred.py rfr 2`
+     The output on shell is similar to below:
+
+                         .
+                         .
+                         .
+                         .
+      Train Number: 12307 RMSE: 39.7547311759
+      Train Number: 12307 RMSE: 27.7902472271
+      Train Number: 12307 RMSE: 69.2035611394
+      Train Number: 12307 RMSE: 90.8565136872
+      Train Number: 12307 RMSE: 56.4806884838
+      Train Number: 12307 RMSE: 50.1364333031
+      Train Number: 12307 RMSE: 34.8328977349
+      Train Number: 12307 RMSE: 16.3028024387
+      Train Number: 12307 RMSE: 24.3166122244
+      Train Number: 12307 RMSE: 26.6479429784
+      Train Number: 12307 RMSE: 67.5090362829
+      Train Number: 12307 RMSE: 29.016842432
+      Train Number: 12307 RMSE: 23.8403707468.
+                         .
+                         .
+                         .
+
+    where each row corresponds to one train journey and the corresponding RMSE
+    obtained on the test data for that journey.
+
+    For Unknown Trains late minutes prediction, execute:
+    `python unknown_trains_lms_pred.py rfr 10 2`
+    This command will predict late minutes for unknown trains by using RFR
+    models and will consider 10 Nearest Neighbors for a station. It will
+    consider 2 previous stations i.e. n = 2 in n-OMLMPF.

@@ -51,7 +51,7 @@ if __name__ == "__main__":
 
         joblib.dump(model, ttu._model_path+"rmr"+alpha_str_list[i]+"_models/"+
             str(n)+"ps_rmr"+alpha_str_list[i]+
-            "_labenc_models_complete_wonps_wdts/"+s+"_label_encoding_model.sav")
+            "_labenc_models/"+s+"_label_encoding_model.sav")
   pickle.dump(stns_having_model, open(ttu._pdr._pdpath+"stations_having_"+
       str(n)+"ps_rmr_models_complete_wonps_wdts.p", "wb"))
 

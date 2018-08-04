@@ -14,12 +14,11 @@
 #
 #       To run this file execute:
 #
-#       `python known_trains_lms_pred.py rfr jrny_wise_known_trains_lms_1ps_labenc
-#       rmse_of_jrny_wise_lms_pred_known_trains_1ps`
+#       `python known_trains_lms_pred.py rfr 1`
 #
-#       to run Random Forest Regressor Station models to predict late minutes
-#       and store the late mins prediction in
-#       "rny_wise_known_trains_lms_1ps_labenc" directory and corresponding RMSEs
+#       to run Random Forest Regressor Station models to predict late minutes;
+#       considering 1-previous station and store the late mins prediction in
+#       "jrny_wise_known_trains_lms_1ps_labenc" directory and corresponding RMSEs
 #       in "rmse_of_jrny_wise_lms_pred_known_trains_1ps" directory.
 #
 #       IMPORTANT NOTE: Make sure to remove the unwanted columns in data frame
@@ -39,7 +38,7 @@ from sklearn.metrics import mean_squared_error
 from utilities.tt_utils import TrainingTestUtils as TTU
 
 def get_journey_wise_late_mins_of_known_trains(
-    ttu, train_num, setting, mdl, exp_lms_output_dir, exp_rmse_output_dir):
+    ttu, train_num, setting, mdl, n, exp_lms_output_dir, exp_rmse_output_dir):
   """
   Finds the journey wise late minutes of Known Trains, ie. first 52 trains of
   all 135 trains whose data has been collected so far.
@@ -53,15 +52,14 @@ def get_journey_wise_late_mins_of_known_trains(
     mdl <string>: <"rfr"|"lmr">
                 "rfr": Random Forest Regressor Models
                 "lmr": Linear Model Regressor Models
+    n <int>: Value of n in n-prev-station or n-OMLMPF.
     exp_lms_output_dir <string>: <"jrny_wise_known_trains_lms_1ps_labenc" | ..>
                                  Desired output directory of predicted latemins.
-                                 Change this directory with values of n in nps.
     exp_rmse_output_dir <string>: <"rmse_of_jrny_wise_lms_pred_known_trains_1ps"
                                    |..>
                                  Desired output directory of predicted latemins
-                                 RMSEs. Changes this directory with values of n
-                                 in nps. Make sure it stays aligned with
-                                 exp_lms_output_dir.
+                                 RMSEs. Make sure it stays aligned with
+                                 `exp_lms_output_dir`.
 
   """
   pred_lms_df = [] # To caputre predicted late mins for each journey
@@ -93,30 +91,34 @@ def get_journey_wise_late_mins_of_known_trains(
 
     for j in range(1, len(stn_list_sj)):
       try: # Try to predict the late minutes for this station in single journey.
-        if j == 1: # valid for only 1 previous station
+        if (j == 1 or n == 1): # valid for only 1 previous station.
           plm = ttu.get_predicted_late_mins_at_station_float(train_num, sj_df,
               j+source_rows[i], 1, stn_list_sj[j], pred_late_mins_sj, j, mdl)
           pred_late_mins_sj.append(plm)
-        else: # j == 2: # valid for only 2 previous stations
+          continue
+        if (j == 2 or n == 2): # valid for only 2 previous stations.
           plm = ttu.get_predicted_late_mins_at_station_float(train_num, sj_df,
               j+source_rows[i], 2, stn_list_sj[j], pred_late_mins_sj, j, mdl)
           pred_late_mins_sj.append(plm)
-        """
-        elif j == 3: # valid for only 3 previous stations
+          continue
+        if (j == 3 or n == 3): # valid for only 3 previous stations.
           plm = ttu.get_predicted_late_mins_at_station_float(train_num, sj_df,
               j+source_rows[i], 3, stn_list_sj[j], pred_late_mins_sj, j, mdl)
           pred_late_mins_sj.append(plm)
-        elif j == 4: # valid for only 4 previous stations
+          continue
+        if (j == 4 or n == 4): # valid for only 4 previous stations.
           plm = ttu.get_predicted_late_mins_at_station_float(train_num, sj_df,
               j+source_rows[i], 4, stn_list_sj[j], pred_late_mins_sj, j, mdl)
           pred_late_mins_sj.append(plm)
-        else: # rest stations in journey are valid for 5 previous stations
+          continue
+        if (j ==5 or n == 5): # rest stations are valid for 5 previous stations.
           plm = ttu.get_predicted_late_mins_at_station_float(train_num, sj_df,
               j+source_rows[i], 5, stn_list_sj[j], pred_late_mins_sj, j, mdl)
           pred_late_mins_sj.append(plm)
-        """
-      # Case when a new station comes whose trained model does not exist
-      except KeyError:
+          continue
+
+      # Case when a new station comes whose trained model does not exist.
+      except KeyError as e:
         # KeyError is obtained while creating row data frame for a station but
         # the previous station is not be present in station to index dict. Hence
         # set the late minutes at the current station as that of previous one.
@@ -124,6 +126,7 @@ def get_journey_wise_late_mins_of_known_trains(
       except Exception as e:
         # Set the late minutes at that station for which no trained model exist
         # as the late minutes at the immediate previou station.
+        print e
         pred_late_mins_sj.append(pred_late_mins_sj[j-1])
 
     # Construct the data frame of Station Code, Actual Late Mins and
@@ -147,20 +150,21 @@ def get_journey_wise_late_mins_of_known_trains(
 
 
 if __name__ == "__main__":
-  mdl = sys.argv[1] # Accept <"rfr"|"lmr">
-  exp_lms_output_dir = sys.argv[2] # Create this directory to store predicted
-                                   # late minutes in each experiments for
-                                   # different  values of n in nps.
+  mdl = sys.argv[1] # Accept <"rfr"|"lmr">.
+  n = sys.argv[2] # Accept the n in n-OMLMPF (n-prev-stns to consider).
+  # Create this directory to store predicted late minutes in each experiments
+  # for different  values of n in nps.
+  exp_lms_output_dir = "jrny_wise_known_trains_lms_%sps_labenc" % n
 
-  exp_rmse_output_dir = sys.argv[3] # Create this directory to store the RMSE
-                                    # for predicted late minutes in each
-                                    # experiment for different values of n.
-                                    # Make sure it stays aligned with
-                                    # exp_lms_output_dir.
+  # Create this directory to store the RMSE for predicted late minutes in each
+  # experiment for different values of n. Make sure it stays aligned with
+  # exp_lms_output_dir.
+  exp_rmse_output_dir = "rmse_of_jrny_wise_lms_pred_known_trains_%sps" % n
+
   ttu = TTU()
   trains52 = ttu._pdr.get_all_trains()[:52] # Choose the first 52 trains, which
                                             # are Known Trains.
   for train in trains52:
     get_journey_wise_late_mins_of_known_trains(
-        ttu, train, "known_test", mdl, exp_lms_output_dir,
+        ttu, train, "known_test", mdl, int(n), exp_lms_output_dir,
         exp_rmse_output_dir)
