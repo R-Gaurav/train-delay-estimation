@@ -161,7 +161,7 @@ class TrainingTestUtils(object):
       #temp = df.pop("stn_"+str(k+1)+"_dist_frm_src")
       #temp = df.pop("tfc_of_stn_"+str(k+1))
       #temp = df.pop("deg_of_stn_"+str(k+1))
-      temp = df.pop(str(k+1)+"_prev_station")
+      temp = df.pop(str(k+1)+"_prev_station") # Remove station code names.
     return df
 
   def get_predicted_late_mins_list(self, current_station, n, df, mdl):
