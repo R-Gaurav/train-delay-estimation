@@ -5,5 +5,4 @@
 # Ignoring data directory
 data/
 models/
-tde_service/logs/
-
+tde_service/
