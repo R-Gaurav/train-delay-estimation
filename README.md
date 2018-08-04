@@ -120,10 +120,10 @@ them first though.
    On executing the above command, you will see a continuous output on command
    prompt:
 
-           \.
-           \.
-           \.
-           \.
+           .
+           .
+           .
+           .
 	 CAR 6.60625167783
    CBH 1.71117789831
    CBJ 17.4222160169
@@ -138,10 +138,10 @@ them first though.
 	 CKTD 5.57649677578
 	 CLG 4.48826310353
 	 CNB 62.4855739456
-           \.
-           \.
-           \.
-           \.
+           .
+           .
+           .
+           .
 
    where "CAR", CBH" are station codes and floating numbers beside them are
    RMSEs which evaluate the fit of models on training data itself.
@@ -153,8 +153,8 @@ them first though.
 1> Move to **code** directory.
 
 2> Execute `python known_trains_lms_pred.py rfr 2`
+The output on shell is similar to below:
 
-     The output on shell is similar to below:
 
                          .
                          .
@@ -172,7 +172,8 @@ them first though.
       Train Number: 12307 RMSE: 26.6479429784
       Train Number: 12307 RMSE: 67.5090362829
       Train Number: 12307 RMSE: 29.016842432
-      Train Number: 12307 RMSE: 23.8403707468.
+      Train Number: 12307 RMSE: 23.8403707468
+                         .
                          .
                          .
                          .
