@@ -124,20 +124,20 @@ them first though.
            .
            .
            .
-	 CAR 6.60625167783
+   CAR 6.60625167783
    CBH 1.71117789831
    CBJ 17.4222160169
    CCK 3.79114575446
-	 CD 3.31220839301
-	 CDMR 5.39912244203
-	 CGR 8.08489734899
-	 CH 10.4774022913
-	 CHL 5.99947173966
- 	 CHTI 67.8594204912
-	 CKDL 12.6303575828
-	 CKTD 5.57649677578
-	 CLG 4.48826310353
-	 CNB 62.4855739456
+   CD 3.31220839301
+   CDMR 5.39912244203
+   CGR 8.08489734899
+   CH 10.4774022913
+   CHL 5.99947173966
+   CHTI 67.8594204912
+   CKDL 12.6303575828
+   CKTD 5.57649677578
+   CLG 4.48826310353
+   CNB 62.4855739456
            .
            .
            .
@@ -152,7 +152,7 @@ them first though.
 ### Predicting delays of train's test data
 1> Move to **code** directory.
 
-2> Execute `python known_trains_lms_pred.py rfr 2`
+2> Execute `python known_trains_lms_pred.py rfr 2`.
 The output on shell is similar to below:
 
 
