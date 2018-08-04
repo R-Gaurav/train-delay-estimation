@@ -35,7 +35,7 @@ an experiment environment on your system is to download and install [Anaconda](
 https://www.anaconda.com/download/).
 
 
-## Future Works (How you can contribute to it...)
+## Future work (how you can contribute to it...)
 Since this project is first of its kind, a large number of avenues exist for
 scaling it up and improving the existing prediction framework.
 
@@ -53,7 +53,7 @@ As of 2018:
 This project is spearheaded by [Dr. Biplav Srivastava](
 https://researcher.watson.ibm.com/researcher/view.php?person=us-biplavs).
 
-## Tutorial (How to use this code to train and test the models...)
+## Tutorial (how to use this code to train and test the models...)
 Upon contacted we share the raw data but not the pre-trained models. Each
 saved pre-trained model is approximately 40MB or more, hence not feasible to
 share all of them. However with the help of following simple steps you can easily
