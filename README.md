@@ -95,7 +95,7 @@ To do this, just execute `python create_pickle_data.py`.
 1> Move to the **code** directory.
 
 2> Execute: `python code/create_training_data.py training 1` to create training
-data for 1 previous station data-frame, similarly replace 1 with <2,3,4,5> for
+data for 1 previous station data-frame, similarly replace `1` with <`2`,`3`,`4`,`5`> for
 creating data with respect to that many number of previous stations.
 
 On a system with 4 logical cores (you can get the number of logical cores on
@@ -113,7 +113,7 @@ For more information, go through the description mentioned in file:
 1> Move to **code** directory.
 
 2> Execute `python rfr_stn_models_training_file.py 1` to train 1-prev-stn Random
-Forest Regressor (RFR) models. Similary change `1` to `2` or `3` or `4` or `5`
+Forest Regressor (RFR) models. Similary change `1` to <`2`,`3`,`4`,`5`>
 to train other models. However you would be required to prepare training data for
 them first though.
 
