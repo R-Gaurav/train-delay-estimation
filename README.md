@@ -24,17 +24,16 @@ railways to manage their resources, while also helping passengers
 and businesses served by them to efficiently plan their activities.
 
 ## Future work (how you can contribute to it...)
-There are many avenues for scaling the work and improving the existing prediction framework.
+There are many avenues for extending current work. Please feel free to
+contact us for any help.
 
-As of 2018:
-- Expand the existing database of 135 trains (819 stations) to India wide.
-- Improve the existing prediction framework's accuracy.
-- The current prediction framework is off-line in approach, i.e. it learns by
-batch processing the accumulated data. A true prediction framework must be
-on-line, i.e. it should keep learning the delays and railway network dynamics
-throughout its life.
-- You can even explore other approaches for late minutes prediction, for example,
-time series prediction etc.
+- [Scaling] Expand the existing database of 135 trains (819 stations) to India wide.
+- [Improving] Improve the accuracy of existing prediction framework. Examples are
+time series prediction, neural networks.
+- [Improving] The current prediction framework is off-line in approach, i.e. it learns by
+batch processing the accumulated data. A realistic prediction framework will be
+on-line, i.e. so that it can  keep learning with delays and railway network dynamics
+throughout its lifetime.
 
 --------
 Suggestions and contributions are welcome.
