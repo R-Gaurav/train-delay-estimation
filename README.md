@@ -7,9 +7,9 @@ the code/ model/ data.
 
 ## Team
 Ramashish Gaurav (2016 - ), 
-Himadri Mishra (2018 - )
-Biplav Srivastava, *main contact*
-Contact by email: my.better.rail@gmail.com
+Himadri Mishra (2018 - ),
+Biplav Srivastava, *main contact*. 
+For data or any other queries, email: my.better.rail@gmail.com
 
 ## Description
 India runs the fourth largest railway transport network size carrying 
