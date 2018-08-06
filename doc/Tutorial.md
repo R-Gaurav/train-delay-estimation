@@ -43,6 +43,8 @@ Experiments and Result Analysis section in our paper - Exp 3, Exp 4).
 To set up an experimental environment, follow the below steps precisely in the
 same order as mentioned. The preferred environment is Linux.
 
+**Note**: The code works with Python 2.7
+
 ### Setting up the directory structure.
 1> Clone this repo on your local system by executing below command.\
 `git clone https://github.com/R-Gaurav/train-delay-estimation.git`
@@ -61,7 +63,9 @@ the **train-delay-estimation** directory.
 4> Save **env.py**.
 
 ### Creating pickle data
-1> We have already provided some data in pickle format which were either manually
+1> Move to the **code** directory.
+
+2> We have already provided some data in pickle format which were either manually
 created or collected from internet via REST APIs. Although you need to create
 few more data in pickle format.
 
