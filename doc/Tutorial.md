@@ -61,7 +61,7 @@ the **train-delay-estimation** directory.
 4> Save **env.py**.
 
 ### Creating pickle data
-1> I have already provided some data in pickle format which were either manually
+1> We have already provided some data in pickle format which were either manually
 created or collected from internet via REST APIs. Although you need to create
 few more data in pickle format.
 
