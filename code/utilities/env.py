@@ -1,7 +1,7 @@
 #
 # Train Delay Estimation Project
 #
-# author: gaurav.ramashish@gmail.com
+# Author: Ramashish Gaurav
 #
 # This module sets up paths for different directories of data and saved models.
 # Import this file always at the beginning of each file.

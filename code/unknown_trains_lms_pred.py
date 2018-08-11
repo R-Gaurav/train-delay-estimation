@@ -1,7 +1,7 @@
 #
 # Train Delay Estimation Project
 #
-# author: gaurav.ramashish@gmail.com
+# Author: Ramashish Gaurav
 #
 # Desc: This file predicts the journey wise late minutes for unknown trains.
 #
@@ -102,7 +102,6 @@ def get_journey_wise_late_mins_of_unknown_trains(
           if stn not in stns_hvng_2ps_model:
             num_of_unknown_stns += 1
             # Get nn nearest neighbors of station "stn"
-            # Get nn nearest neighbors of station "stn"
             nn_stns = ttu.get_station_nearest_neighbors_list(stn, 2, nn)
             stn = nn_stns[0] # Choose the 1st nearest neighbor station
           plm = ttu.get_predicted_late_mins_at_station_float(train_num, sj_df,
@@ -113,7 +112,6 @@ def get_journey_wise_late_mins_of_unknown_trains(
           stns_hvng_3ps_model = ttu._pdr.get_stations_having_nps_model_list(nps=3)
           if stn not in stns_hvng_3ps_model:
             num_of_unknown_stns += 1
-            # Get nn nearest neighbors of station "stn"
             # Get nn nearest neighbors of station "stn"
             nn_stns = ttu.get_station_nearest_neighbors_list(stn, 3, nn)
             stn = nn_stns[0] # Choose the 1st nearest neighbor station
@@ -126,7 +124,6 @@ def get_journey_wise_late_mins_of_unknown_trains(
           if stn not in stns_hvng_4ps_model:
             num_of_unknown_stns += 1
             # Get nn nearest neighbors of station "stn"
-            # Get nn nearest neighbors of station "stn"
             nn_stns = ttu.get_station_nearest_neighbors_list(stn, 4, nn)
             stn = nn_stns[0] # Choose the 1st nearest neighbor station
           plm = ttu.get_predicted_late_mins_at_station_float(train_num, sj_df,
@@ -137,7 +134,6 @@ def get_journey_wise_late_mins_of_unknown_trains(
           stns_hvng_5ps_model = ttu._pdr.get_stations_having_nps_model_list(nps=5)
           if stn not in stns_hvng_5ps_model:
             num_of_unknown_stns += 1
-            # Get nn nearest neighbors of station "stn"
             # Get nn nearest neighbors of station "stn"
             nn_stns = ttu.get_station_nearest_neighbors_list(stn, 5, nn)
             stn = nn_stns[0] # Choose the 1st nearest neighbor station

@@ -1,7 +1,7 @@
 #
 # Train Delay Estimation Project
 #
-# author: gaurav.ramashish@gmail.com
+# Author: Ramashish Gaurav
 #
 # Desc: This file creates all the required pickle data (used throughout the code
 #       as pre-computed data) taking reference from the existing data on github
@@ -48,12 +48,14 @@ class CreatePickleData(object):
     trains). It considers the complete journey of trains (March 2016 to Feb 2018).
     """
     trains135 = self._pdr.get_all_trains()
-    tr135_unique_stations = []
+    tr135_unique_stations = [] # To store all the unique stations for all trains.
+    tr135_inline_stns = {} # To store the stations inline in a train's journey.
     for train in trains135:
       df = self._cdr.get_train_complete_journey_df(train)
       stations = df["station_code"]
       tr_unique_stations = np.unique(stations)
       tr135_unique_stations.extend(tr_unique_stations)
+      tr135_inline_stns[train] = tr_unique_stations.tolist()
 
     tr135_unique_stations = np.unique(tr135_unique_stations).tolist()
     pickle.dump(tr135_unique_stations,
@@ -61,6 +63,9 @@ class CreatePickleData(object):
     print ("135 Trains Unique Stations pickle data dumped in pickle_data"
            " directory. Number of unique stations: %s"
            % len(tr135_unique_stations))
+    pickle.dump(tr135_inline_stns,
+                open(self._pdr._pdpath+"trains_inline_stations_dict.p", "wb"))
+    print "135 Trains inline stations dict dumped in pickle_data directory"
     print "-" * 80
 
 if __name__ == "__main__":

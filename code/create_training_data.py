@@ -1,7 +1,7 @@
 #
 # Train Delay Estimation Project
 #
-# author: gaurav.ramashish@gmail.com
+# Author: Ramashish Gaurav
 #
 # Desc: This file creates data for training and evaluating the different models.
 #

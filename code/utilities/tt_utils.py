@@ -1,7 +1,7 @@
 #
 # Train Delay Estimation Project
 #
-# author: gaurav.ramashish@gmail.com
+# Author: Ramashish Gaurav
 #
 # Desc: This file provides the basic utility functions for training and testing
 #       the models.
@@ -279,25 +279,3 @@ class TrainingTestUtils(object):
 
     plm = self.get_predicted_late_mins_list(station, n, row_df_nps, mdl)
     return plm[0]
-
-  def replace_unknown_stations_with_known_stations_df(self, train_df, n):
-    """
-    Returns a data frame with unknown stations replaced by known stations
-    depending on the value of n for the nth nearest neighbor.
-
-    Args:
-      train_df <python.DataFrame>: A train data frame of all journeys.
-      n <int>: n for nearest neighbor <1..10>.
-    """
-    nn_station_codes = []
-    known_stations = self._pdr.get_all_52trains_stations()
-    station_codes = train_df["station_code"]
-    for station in station_codes:
-      if station not in known_stations:
-        # Get 10 nearest neighbors of unknown stations (hard coded)
-        nn_stations = self.get_station_nearest_neighbors_list(station, 10)
-        nn_station_codes.append(nn_stations[n-1])
-      else:
-        nn_station_codes.append(station)
-    train_df["station_code"] = nn_station_codes
-    return train_df

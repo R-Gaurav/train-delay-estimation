@@ -1,7 +1,7 @@
 #
 # Train Delay Estimation Project
 #
-# author: gaurav.ramashish@gmail.com
+# Author: Ramashish Gaurav
 #
 # Desc: This file reads the pickle data.
 #
@@ -152,3 +152,12 @@ class PickleDataReader(object):
         "_"+group+"_trains_"+str(n)+"ps"+rfr_mdl+"/Train_"+train+"_jw_rmse.p",
         "rb"))
     return rmse_list
+
+  def get_all_trains_inline_stations_dict(self):
+    """
+    Returns a dict of key as train number and values as a list of stations
+    inline in its journey.
+    """
+    train_stns_dict = pickle.load(
+        open(self._pdpath+"trains_inline_stations_dict.p", "rb"))
+    return train_stns_dict

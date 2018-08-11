@@ -9,20 +9,15 @@ refer the paper.
 
 Here, description of files in this repository is given.
 
-/data:
-  > Contains the information of data collected from March 2016 to June 2017 for
-  135 trains.
-
-/models:
-  > Contains the trained models for each stations, which form the basis of our
-  late minutes prediction framework.
-
 /readers:
   > Contains the helper code to read data from csv files and pickle files.
 
 /utilities:
   > Contains the helper code to generate data frames and to build our train-test
   algorithm.
+
+/create_pickle_data.py
+  > Creates and saves the required data in pickle format.
 
 /create_training_data.py:
   > Code to create training data i.e. a Training Data Frame for each Known
@@ -33,6 +28,9 @@ Here, description of files in this repository is given.
 
 /rfr_stn_models_training_file.py:
   > Code to train Random Forest Regressors on Training Data Frame.
+
+/rmr_stn_models_training_file.py
+  > Code to train Ridge Model Regressor on Training Data Frame.
 
 /known_trains_lms_pred.py:
   > Implementation of N-Order Late Minutes Prediction Framework for Known Trains.

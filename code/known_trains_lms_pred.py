@@ -1,7 +1,7 @@
 #
 # Train Delay Estimation Project
 #
-# author: gaurav.ramashish@gmail.com
+# Author: Ramashish Gaurav
 #
 # Desc: This file predicts the journey late minutes of known trains (52 trains).
 #       Prints the RMSE of each journey.

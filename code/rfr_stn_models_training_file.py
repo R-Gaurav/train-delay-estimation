@@ -1,7 +1,7 @@
 #
 # Train Delay Estimation Project
 #
-# author: gaurav.ramashish@gmail.com
+# Author: Ramashish Gaurav
 #
 # Desc: This file trains the Random Forest Regressor models for different
 #       stations. Refer the reademe.txt in models/rfr_models/ to figure out the

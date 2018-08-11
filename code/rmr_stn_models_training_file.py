@@ -1,7 +1,7 @@
 #
 # Train Delay Estimation Project
 #
-# author: gaurav.ramashish@gmail.com
+# Author: Ramashish Gaurav
 #
 # Desc: This file trains linear models for 596 known stations. But the ridge
 #       models trained were not found to be robust during evaluation and
