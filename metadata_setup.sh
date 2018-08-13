@@ -13,7 +13,7 @@ yes '' | sed 5q # Echo 5 blank lines.
 
 # Untaring the tar data file.
 echo "Untaring data... Train_Delay_Estimation_Data_March_2016_February_2018.tar"
-tar -zxf Train_Delay_Estimation_Data_March_2016_February_2018.tar
+tar -vxf Train_Delay_Estimation_Data_March_2016_February_2018.tar
 echo "Untaring done!"
 echo "*************************************************************************"
 yes '' | sed 5q # Echo 5 blank lines.
@@ -81,18 +81,18 @@ yes '' | sed 5q # Echo 5 blank lines.
 
 echo "Creating a subdirectory 'rfr_model_pickle_data' inside 'data/pickle_data'"
 echo "to save RMSEs of predicted late-minutes in pickle format."
-mkdir data/pickle_data/rfr_model_pickle_data
+mkdir -p data/pickle_data/rfr_model_pickle_data
 for n in {1..5}
 do
   echo "Creating 'rmse_of_jrny_wise_lms_pred_known_trains_"$n"ps' to store RMSE"
   echo "of journey wise predicted late minutes from "$n"-OMLMPF algorithm for"
   echo "Known Trains in pickle format."
-  mkdir data/pickle_data/rfr_model_pickle_data/rmse_of_jrny_wise_lms_pred_known_trains_"$n"ps
+  mkdir -p data/pickle_data/rfr_model_pickle_data/rmse_of_jrny_wise_lms_pred_known_trains_"$n"ps
   echo "-----------------------------------------------------------------------"
   echo "Creating 'rmse_of_jrny_wise_lms_pred_unknown_trains_"$n"ps' to store RMSE"
   echo "of journey wise predicted late minutes from "$n"-OMLMPF algorithm for"
   echo "Unknown Trains in pickle format."
-  mkdir data/pickle_data/rfr_model_pickle_data/rmse_of_jrny_wise_lms_pred_unknown_trains_"$n"ps
+  mkdir -p data/pickle_data/rfr_model_pickle_data/rmse_of_jrny_wise_lms_pred_unknown_trains_"$n"ps
   echo "-----------------------------------------------------------------------"
 done
 echo "Setting up the directory structure for saving RMSEs in pickle format done!"
