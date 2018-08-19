@@ -24,9 +24,9 @@ railways to manage their resources, while also helping passengers
 and businesses served by them to efficiently plan their activities.
 
 ## Tutorial to use our code
-Please visit [tutorial](
+Please visit the [tutorial](
 https://github.com/R-Gaurav/train-delay-estimation/blob/master/doc/Tutorial.md)
-to find the steps for using our code and setting up the experiment locally on
+to find out the steps for using our code and setting up the experiment locally on
 your system.
 
 ## Future work (how you can contribute to it...)

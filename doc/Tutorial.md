@@ -179,8 +179,8 @@ Make sure that you have all the trained Random Forest Regressors models up to N=
 
 1> Move to **tde_service** directory.
 
-2> Set the `project_dir_path` to the location where you have downloaded the
-`train_delay_estimation` directory.
+2> In `env.py` file, set the `project_dir_path` to the location where you have
+downloaded the `train_delay_estimation` directory.
 
 3> Execute: `python app.py`. The flask server would be running by default on
 loopback address: 127.0.0.1 at port 5000.
