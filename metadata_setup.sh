@@ -8,6 +8,11 @@ echo "#       TRAIN DELAY ESTIMATION       #"
 echo "#                                    #"
 echo "######################################"
 
+echo "Installing the required dependencies in requirements.txt"
+pip install -r requirements.txt
+echo "All required python libraries installed."
+yes '' | sed 5q # Echo 5 blank lines.
+
 echo "Setting up the metadata (directory structure)..."
 yes '' | sed 5q # Echo 5 blank lines.
 
