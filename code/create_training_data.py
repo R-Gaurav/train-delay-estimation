@@ -163,7 +163,7 @@ if __name__ == '__main__':
   stns_of_52trains = pdr.get_all_52trains_stations() # Get all Known Stations.
 ################################################################################
   # To create training or cross-validation data, runs parallely on 4 processors.
-  Parallel(n_jobs=4)(delayed(generate_known_current_station_df)(tdfu, stn,
+  Parallel(n_jobs=-1)(delayed(generate_known_current_station_df)(tdfu, stn,
       setting, n) for stn in stns_of_52trains)
 ################################################################################
   # To create stations' features data frame.

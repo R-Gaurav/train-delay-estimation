@@ -2,12 +2,12 @@
 
 ## Background
 We collected Train Running Status data (with format same as that shown in [NTES](
-https://enquiry.indianrail.gov.in/mntes/)) for a period of two years from March 2016 
+https://enquiry.indianrail.gov.in/mntes/)) for a period of two years from March 2016
 to February 2018 for 135 trains that pass through MGS (Mughalsarai Station, one of the
-top busiest stations in India). After required preprocessing of the data, we 
-found that delays at stations depend on the month during which the journey is made, 
-as well as the stations previous to the current station (at which we 
-sought the predicted delay). As part of learning algorithms we 
+top busiest stations in India). After required preprocessing of the data, we
+found that delays at stations depend on the month during which the journey is made,
+as well as the stations previous to the current station (at which we
+sought the predicted delay). As part of learning algorithms we
 used Random Forest Regressors and Ridge Regressors to
 devise a Zero Shot competent, scalable and train agnostic, late minutes prediction
 framework inspired from Markov Process. We name our prediction framework as
@@ -15,8 +15,8 @@ framework inspired from Markov Process. We name our prediction framework as
 
 The *N*-OMLMPF inputs a train number, its journey route information (i.e.
 stations along its journey route, distance of stations from source etc. - for
-more information, please see our papers in doc directory) and station at 
-which the user wishes to known the expected delay and a date. It then 
+more information, please see our papers in doc directory) and station at
+which the user wishes to known the expected delay and a date. It then
 outputs the expected delay at that particular station.
 
 The above only presents the gist of our work, it is highly recommended to go
@@ -49,8 +49,13 @@ same order as mentioned. The preferred environment is Linux.
 1> Clone this repo on your local system by executing below command.\
 `git clone https://github.com/R-Gaurav/train-delay-estimation.git`
 
-2> Change the directory: `cd train-delay-estimation` and execute:
-`./metadata_setup.sh` from inside `train-delay-estimation` direcotry.
+2> After you download the tar file of data:
+`Train_Delay_Estimation_Data_March_2016_February_2018.tar`, move it inside the
+`train-delay-estimation` directory. You can download this data by contacting us
+at my.better.rail@gmail.com.
+
+3> From inside `train-delay-estimation` directory execute:
+`./metadata_setup.sh` to setup the required directory structure.
 
 ### Setting up the environment variables in file **env.py**
 1> Navigate to directory **train-delay-estimation/code/utilities**.
@@ -167,6 +172,35 @@ For Unknown Trains late minutes prediction, execute:
 This command will predict late minutes for unknown trains by using RFR
 models and will consider 10 Nearest Neighbors for a station. It will
 consider 2 previous stations i.e. n = 2 in n-OMLMPF.
+
+### Deploying the Train Delay Estimation Service on your local machine
+Make sure that you have all the trained Random Forest Regressors models up to N=
+5.
+
+1> Move to **tde_service** directory.
+
+2> Set the `project_dir_path` to the location where you have downloaded the
+`train_delay_estimation` directory.
+
+3> Execute: `python app.py`. The flask server would be running by default on
+loopback address: 127.0.0.1 at port 5000.
+
+From other terminal:
+
+4> Execute: `curl http://127.0.0.1:5000/12307` to get the predicted late minutes
+of train 12307 on current date.
+
+5> Execute: `curl http://127.0.0.1:5000/12307/2018-07-23` to get predicted late
+minutes of train 12307 on date 23rd July 2018.
+
+6> Execute `curl http://127.0.0.1:5000/12307/ALD/today` to get predicted late
+minutes of train 12307 at station ALD (Allahabad) on current date.
+
+7> Execute `curl http://127.0.0.1:5000/12307/ALD/2018-12-09` to get predicted
+late minutes for train 12307 at station ALD on 9th Dec 2018.
+
+The logs can be obtained in `train-delay-estimation/tde_service/logs/tde_logs.log`
+file.
 
 ----------
 

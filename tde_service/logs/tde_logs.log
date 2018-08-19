@@ -1,9 +1,13 @@
-2018-08-12 02:29:48,523 - util.log - INFO - Completed configuring logger()!
-2018-08-12 02:30:13,307 - util.log - INFO - Train Number: 12301, Station Code: None, Date: CNB
-2018-08-12 02:30:13,307 - util.log - ERROR - Date: %s is not valid as per regex
-2018-08-12 02:30:13,307 - util.log - ERROR - None
-
-2018-08-12 02:30:29,443 - util.log - INFO - Train Number: 10000, Station Code: None, Date: CNB
-2018-08-12 02:30:29,443 - util.log - ERROR - Train %s not in ALL_135_TRAINS list
-2018-08-12 02:30:29,443 - util.log - ERROR - None
-
+2018-08-19 23:24:20,460 - util.log - INFO - Completed configuring logger()!
+2018-08-19 23:26:55,831 - util.log - INFO - Train Number: 12307, Station Code: None, Date: None
+2018-08-19 23:26:56,000 - util.log - INFO - Modified Date: 19 Aug 2018, Month: Aug, Weekday: Sunday
+2018-08-19 23:26:56,001 - util.log - INFO - Train: 12307 single journey dataframe modified
+2018-08-19 23:29:52,338 - util.log - INFO - Train Number: 12307, Station Code: None, Date: 2018-07-23
+2018-08-19 23:29:52,470 - util.log - INFO - Modified Date: 23 Jul 2018, Month: Jul, Weekday: Monday
+2018-08-19 23:29:52,471 - util.log - INFO - Train: 12307 single journey dataframe modified
+2018-08-19 23:31:54,013 - util.log - INFO - Train Number: 12307, Station Code: ALD, Date: None
+2018-08-19 23:31:54,149 - util.log - INFO - Modified Date: 19 Aug 2018, Month: Aug, Weekday: Sunday
+2018-08-19 23:31:54,150 - util.log - INFO - Train: 12307 single journey dataframe modified
+2018-08-19 23:34:44,370 - util.log - INFO - Train Number: 12307, Station Code: ALD, Date: 2018-12-09
+2018-08-19 23:34:44,513 - util.log - INFO - Modified Date: 09 Dec 2018, Month: Dec, Weekday: Sunday
+2018-08-19 23:34:44,514 - util.log - INFO - Train: 12307 single journey dataframe modified
