@@ -188,10 +188,10 @@ loopback address: 127.0.0.1 at port 5000.
 From other terminal:
 
 4> Execute: `curl http://127.0.0.1:5000/12307` to get the predicted late minutes
-of train 12307 on current date.
+at all the in-line stations of train 12307 on current date.
 
 5> Execute: `curl http://127.0.0.1:5000/12307/2018-07-23` to get predicted late
-minutes of train 12307 on date 23rd July 2018.
+minutes at all the in-line stations of train 12307 on date 23rd July 2018.
 
 6> Execute `curl http://127.0.0.1:5000/12307/ALD/today` to get predicted late
 minutes of train 12307 at station ALD (Allahabad) on current date.
