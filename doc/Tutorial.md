@@ -137,7 +137,7 @@ them first though.
 ### Predicting delays of train's test data
 1> Move to **code** directory.
 
-2> Execute `python known_trains_lms_pred.py rfr 2`.
+2> Execute `python known_trains_lms_pred.py rfr 1`.
 The output on shell is similar to below:
 
 
@@ -167,7 +167,7 @@ where each row corresponds to one journey of a train and the corresponding RMSE
 obtained on the test data for that journey.
 
 For Unknown Trains late minutes prediction, execute:
-`python unknown_trains_lms_pred.py rfr 10 2`
+`python unknown_trains_lms_pred.py rfr 10 1`
 
 This command will predict late minutes for unknown trains by using RFR
 models and will consider 10 Nearest Neighbors for a station. It will
