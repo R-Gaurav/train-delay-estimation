@@ -5,3 +5,9 @@
 # Ignoring data directory
 data/
 models/
+
+# Ignoring config files and logs
+code/utilities/env.py
+tde_service/app.py
+tde_service/env.py
+tde_service/logs/tde_logs.log
