@@ -79,7 +79,7 @@ To do this, just execute `python create_pickle_data.py`.
 ### Creating the training data (Table III in paper) to train the models
 1> Move to the **code** directory.
 
-2> Execute: `python code/create_training_data.py training 1` to create training
+2> Execute: `python create_training_data.py training 1` to create training
 data for 1 previous station data-frame, similarly replace `1` with <`2`,`3`,`4`,`5`> for
 creating data with respect to that many number of previous stations.
 
