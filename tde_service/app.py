@@ -37,7 +37,8 @@ ALL_135_TRAINS = pdr.get_all_trains()
 
 STNS_WITH_N_MDLS = {
   "1ps": pdr.get_stations_having_nps_model_list(nps=1),
-  "2ps": pdr.get_stations_having_nps_model_list(nps=2)
+  ## One can add more deeper models one may have tried. E.g., 2-order in next line
+  # "2ps": pdr.get_stations_having_nps_model_list(nps=2)
 }
 
 
