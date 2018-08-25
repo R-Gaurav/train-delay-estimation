@@ -55,7 +55,8 @@ same order as mentioned. The preferred environment is Linux.
 at my.better.rail@gmail.com.
 
 3> From inside `train-delay-estimation` directory execute:
-`./metadata_setup.sh` to setup the required directory structure.
+`./metadata_setup.sh` to setup the required directory structure along 
+with automatically installing the dependencies in **requirements.txt**.
 
 ### Setting up the environment variables in file **env.py**
 1> Navigate to directory **train-delay-estimation/code/utilities**.
