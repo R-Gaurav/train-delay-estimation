@@ -84,7 +84,7 @@ To do this, just execute `python create_pickle_data.py`.
 data for 1 previous station data-frame, similarly replace `1` with <`2`,`3`,`4`,`5`> for
 creating data with respect to that many number of previous stations.
 
-On a system with 4 logical cores (you can get the number of logical cores on
+On a system with 4 logical i5 cores (you can get the number of logical cores on
 you system by executing `htop` or `top` (followed by pressing `1` key)), it
 takes nearly 7 hours to prepare 1-prev-stn data frames. For 2-prev-stn data
 frames it takes 9 hours, so expect it to keep increasing for higher number
