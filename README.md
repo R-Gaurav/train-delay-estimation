@@ -46,8 +46,8 @@ current date in a JSON format (example below).
 }
 `
 
-The list of trains for which you can avail this service is also mentioned there
-in the tutorial.
+The list of trains for which you can avail this service is mentioned [here](
+https://github.com/R-Gaurav/train-delay-estimation/blob/master/trains.txt).
 
 ## Future work (how you can contribute to it...)
 There are many avenues for extending current work. Please feel free to
