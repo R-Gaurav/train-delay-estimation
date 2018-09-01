@@ -6,7 +6,7 @@ presentation; papers (ITSC version accepted at [IEEE ITSC 2018](
 http://www.ieee-itsc2018.org) and long version of [Arxiv](
 https://arxiv.org/abs/1806.02825) and a [tutorial](
 https://github.com/R-Gaurav/train-delay-estimation/blob/master/doc/Tutorial.md)
-on using the code/ model/ data. This poject is licensed under GNU GENERAL PUBLIC
+on using the code/ model/ data. This project is licensed under GNU GENERAL PUBLIC
 LICENSE Version 3.
 
 ## Team
