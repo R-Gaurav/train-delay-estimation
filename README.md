@@ -63,7 +63,7 @@ throughout its lifetime.
 
 In case you decide to contribute, please go through the [PEP8](
 https://www.python.org/dev/peps/pep-0008/) coding conventions. 
-The coding standardsin this repository is very much based on that.
+The coding standards in this repository is very much based on that.
 
 --------
 
