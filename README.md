@@ -12,7 +12,7 @@ LICENSE Version 3.
 ## Team
 Ramashish Gaurav (2016 - ),
 Himadri Mishra (2018 - ),
-Biplav Srivastava, *main contact*.
+Biplav Srivastava (*main contact*).
 For data or any other queries, email: my.better.rail@gmail.com
 
 ## Description
@@ -26,9 +26,6 @@ years, we report on an efficient algorithm for estimating delays at
 railway stations with near accurate results. This work can help
 railways to manage their resources, while also helping passengers
 and businesses served by them to efficiently plan their activities.
-
-### List of trains covered so far
-['12307', '12331', '12801', '12802', '12815', '12816', '12875', '12876', '13010', '13050', '13119', '13131', '13133', '13151', '13238', '13483', '14055', '18612', '22911', '12178', '12318', '12327', '12354', '12361', '12362', '12372', '12395', '12569', '12818', '12942', '14003', '15632', '15635', '15636', '22811', '22812', '22824', '12305', '12326', '12424', '12444', '12578', '12937', '22409', '09012', '09305', '12149', '12282', '12333', '12335', '12382', '13239', '01660', '02050', '02265', '02397', '03209', '03210', '03291', '03563', '03564', '04039', '04040', '04401', '04405', '04406', '04821', '05066', '06032', '12141', '12150', '12175', '12295', '12296', '12301', '12302', '12304', '12308', '12309', '12312', '12313', '12317', '12319', '12320', '12322', '12325', '12328', '12332', '12334', '12356', '12369', '12381', '12392', '12397', '12398', '12401', '12423', '12439', '12454', '12495', '12496', '12506', '12741', '12817', '12826', '12947', '12948', '12987', '12988', '13005', '13006', '13008', '13009', '13049', '13202', '13240', '13255', '13307', '13308', '13414', '15022', '15483', '15645', '15668', '18103', '18104', '18311', '18609', '18631', '19313', '22308', '22405', '22406', '22488', '25631']
 
 ## Tutorial to use our code
 Please visit the [tutorial](
@@ -49,6 +46,9 @@ current date in a JSON format (example below).
 }
 `
 
+The list of trains for which you can avail this service is also mentioned there
+in the tutorial.
+
 ## Future work (how you can contribute to it...)
 There are many avenues for extending current work. Please feel free to
 contact us for any help.
@@ -63,7 +63,7 @@ throughout its lifetime.
 
 In case you decide to contribute, please go through the [PEP8](
 https://www.python.org/dev/peps/pep-0008/) coding conventions. 
-The coding standards in this repository is very much based on that.
+The coding standards in this repository are very much based on that.
 
 --------
 
