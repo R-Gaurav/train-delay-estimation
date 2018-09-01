@@ -37,7 +37,7 @@ to find out the steps for using our code and setting up the experiment locally o
 your system. In the tutorial you will also find how to deploy a train delay
 estimation service locally on your system. On executing a REST API call, e.g.
 *curl http://127.0.0.1:5000/12333* (more to be found in tutorial) you will get
-delay estimates (in minutes) at in-line station of Train 12333's journey on
+delay estimates (in minutes) at in-line stations of Train 12333's journey on
 current date in a JSON format (example below).
 
 `
@@ -62,8 +62,9 @@ on-line, i.e. so that it can  keep learning with delays and railway network dyna
 throughout its lifetime.
 
 In case you decide to contribute, please go through the [PEP8](
-https://www.python.org/dev/peps/pep-0008/) coding conventions. The coding standards
-in this repository is very much based on that.
+https://www.python.org/dev/peps/pep-0008/) coding conventions. 
+The coding standardsin this repository is very much based on that.
+
 --------
 
 Suggestions and contributions are welcome.
