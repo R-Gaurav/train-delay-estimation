@@ -13,7 +13,9 @@ LICENSE Version 3.
 Ramashish Gaurav (2016 - ),
 Himadri Mishra (2018 - ),
 Biplav Srivastava (*main contact*).
-For data or any other queries, email: my.better.rail@gmail.com
+For acquiring the data, please fill [this form](
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc-u619QBL49KO7Lh6UvKOpSF4U1QDD-ZE0VZAqrtv-PlyehQ/viewform?embedded=true" width="640" height="1088" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>) and also email at:
+my.better.rail@gmail.com.
 
 ## Description
 India runs the fourth largest railway transport network size carrying
@@ -62,7 +64,7 @@ on-line, i.e. so that it can  keep learning with delays and railway network dyna
 throughout its lifetime.
 
 In case you decide to contribute, please go through the [PEP8](
-https://www.python.org/dev/peps/pep-0008/) coding conventions. 
+https://www.python.org/dev/peps/pep-0008/) coding conventions.
 The coding standards in this repository are very much based on that.
 
 --------
