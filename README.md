@@ -13,7 +13,7 @@ LICENSE Version 3.
 Ramashish Gaurav (2016 - ),
 Himadri Mishra (2018 - ),
 Biplav Srivastava (*main contact*).
-For acquiring the data, please fill [this form](https://docs.google.com/forms/d/e/1FAIpQLSc-u619QBL49KO7Lh6UvKOpSF4U1QDD-ZE0VZAqrtv-PlyehQ/viewform?usp=sf_link) and also email at:
+To request our collected data for research purposes, please fill [this form](https://docs.google.com/forms/d/e/1FAIpQLSc-u619QBL49KO7Lh6UvKOpSF4U1QDD-ZE0VZAqrtv-PlyehQ/viewform?usp=sf_link) and also email at:
 my.better.rail@gmail.com.
 
 ## Description
