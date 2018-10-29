@@ -1,7 +1,9 @@
 # Documentation
 
 ## Video
-1. Train Chatbot: A Train Status Assistant for Indian Railways (Prototype), 
+1. Train Chatbot: A Train Status Assistant for Indian Railways (Skype Prototype), 
+https://www.youtube.com/watch?v=I-wtcAYLYr4, Oct 2018
+2. Train Chatbot: A Train Status Assistant for Indian Railways (Emulator Prototype), 
 https://www.youtube.com/watch?v=a-ABv29H6XU&feature=youtu.be, Sep 2018
 
 ## Papers
